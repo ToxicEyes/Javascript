@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>DOM Manipulation</title>
+ <link rel="stylesheet" href="style.css">
+
+</head>
+<body  class="bg-black p-2">
+   <!-- <div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+   </div> -->
+
+  <!-- <script src="script.js"></script> -->
+  <ul class="languages style-none">
+    <li>Javascript</li>
+  </ul>
+  <script>
+    //code below is not optimised
+    function addListItem(langName) {
+      const newItem = document.createElement("li");
+      newItem.innerText = `${langName}`;
+      const parent = document.querySelector(".languages");
+      parent.appendChild(newItem);
+    }
+
+    function addOptiListItem(langName) {
+      const newItem = document.createElement("li");
+      newItem.appendChild(document.createTextNode(langName));
+      const parent = document.querySelector(".languages");
+      parent.appendChild(newItem);
+    }
+
+    // addListItem("Java");
+
+    addOptiListItem("Java");
+    addOptiListItem("Python");
+    addOptiListItem("Typescript");
+
+    //Replcaing element
+    const secondLang = document.querySelector("li:nth-child(2)");
+    const newLi = document.createElement("li");
+    newLi.innerText = "Mojo";
+    secondLang.replaceWith(newLi)
+
+    //another way to replcae an item
+    const  firstlang = document.querySelector("li:nth-child(1)");
+    firstlang.outerHTML = "Go Lang";
+
+    //removing an element
+    const lastLang = document.querySelector("li:nth-child(3)");
+    lastLang.remove();
+
+  </script>
+</body>
+</html>
