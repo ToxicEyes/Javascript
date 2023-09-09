@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>GITHUB PROFILE CARD | PROJECT</title>
+ <style>
+  *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+
+  body,html{
+   height: 100%;
+   width: 100%;
+  }
+
+  body{
+   background-color: #212121;
+   font-family: "General Sans", sans-serif;
+   color: #fff;
+  }
+
+  #title{
+   text-align: center;
+  }
+
+  #main{
+   width: 80%;
+   height: 80%;
+   margin: 20px auto;
+   border: 1px solid white !important;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+
+  #card{
+   display: flex;
+   flex-direction: column;
+   /* row-gap: 20px; */
+   align-items: flex-start;
+   justify-content: center;
+   background-color: #414141;
+   height: 88%;
+   width: 30vw;
+   border-radius: 25px;
+  }
+
+  #card_image{
+    flex:1;
+    width: 100%;
+   height: 100%;
+   position: relative;
+   overflow: hidden;
+   border-radius: 25px;
+   outline: 1px solid white;
+  }
+
+  #card_image img{
+   width: 100%;
+   height: 100%;
+   border-radius: 25px;
+   object-fit: cover;
+  }
+
+  #input_text{
+   padding: 5px;
+   text-align: center;
+   width: 40%;
+   margin-left: 30%;
+   transform: translateX(0,-50%);
+  }
+
+  #card_content{
+   flex: 1;
+   font-size: 2vw;
+   margin: 0 auto;
+  }
+ </style>
+</head>
+<body>
+  <h1 id="title">GITHUB PROFILE CARD</h1>
+  <input type="text" placeholder="Enter Name here" id="input_text" >
+  <button id="fetch_data">GET</button>
+  <div id="main">
+    <div id="card">
+     <div id="card_image">
+      <img id="pImage" src="https://intentplanning.ca/wp-content/uploads/2019/01/sample-person.jpg" alt="image">
+     </div>
+
+     <div id="card_content">
+      <h3 > Name:<span id="pName">User</span></h3>
+      <h3 >Twitter:<span id="pTwitter">usercom</span></h3>
+      <h3 >Location:<span id="pLocation">XYZ</span></h3>
+      <h3 >Followers:<span id="pFollowers">-</span></h3>
+     </div>
+    </div>
+
+
+  </div>
+ <script src="profileCard.js"></script>
+</body>
+</html>

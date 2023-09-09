@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, commodi!
+ <script>
+  console.log("Hello, API");
+
+//using XmlHttpRequest for sending and receiving data (Legacy Methods, not used in modern day apps)
+
+
+/**
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+ */
+
+//since XMLHttpRequest is a class, we have to make an object of it
+const requestUrl = 'https://api.github.com/users/ToxicEyes';
+const xmr = new XMLHttpRequest();
+xmr.open('GET', requestUrl);
+//if you want to continuously track it use usereadystatechange() method
+
+xmr.onreadystatechange = function (){
+ console.log(xmr.readyState);
+
+ //if you use below code without 'this' keyword, it will throw an error
+ //we have to define that we want response of current context
+ if(xmr.readyState === 4){
+  // const data = this.responseText;
+  const data = JSON.parse(this.responseText);
+  console.log(data);
+  console.log(typeof data);//string
+  //now we can fetch the data from this response
+  //Remember that responseText is having the type of 'string'.
+  //So we have to convert it into an object
+  //JSON.parse() method converts this string to JSON data.
+  console.log(data.login, data.avatar_url);
+ }
+}
+xmr.send();
+ </script>
+</body>
+</html>
